@@ -18,11 +18,21 @@ const createRouter = function (collection) {
   });
 
   router.post('/', (req,res) => {
-  const item = req.body;
-  collection.insertOne(item)
+  const entry = req.body;
+  collection.insertOne(entry)
   .then(result => res.json(result.ops[0]))
   });
 
+  router.put('/:id', (req,res)=>{
+  const id = req.params.id;
+  const updatedEntry = req.body;
+  collection.findOneAndUpdate(
+    {_id: ObjectID(id)},
+    {$set: updatedEntry},
+    {returnOriginal: false}
+  )
+  .then(result => res.json(result.value))
+})
 
   return router;
 
