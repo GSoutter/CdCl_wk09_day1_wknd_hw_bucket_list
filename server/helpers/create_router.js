@@ -17,6 +17,12 @@ const createRouter = function (collection) {
     });
   });
 
+  router.post('/', (req,res) => {
+  const item = req.body;
+  collection.insertOne(item)
+  .then(result => res.json(result.ops[0]))
+  });
+
 
   return router;
 
