@@ -53,7 +53,15 @@ export default {
         .then(bucketList => this.bucketList = bucketList)
       },
       addToBucketList(){
-        this.bucketList.push(this.selectedCountry)
+        // TODO: use service to add to bucket list
+        const selectedCountryTrim = {
+          name: this.selectedCountry.name,
+          flag: this.selectedCountry.flag,
+          visited: false,
+        }
+
+        BucketService.addBucketItem(selectedCountryTrim)
+        .then(resBucket => this.bucketList.push(resBucket))
       }
     }
 }
