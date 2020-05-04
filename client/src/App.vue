@@ -7,7 +7,7 @@
     <country-detail v-if="selectedCountry" :selectedCountry="selectedCountry">
     </country-detail>
 
-    <button v-if="!bucketList.includes(selectedCountry) && selectedCountry" v-on:click="addToBucketList">Add Country</button>
+    <button v-if="selectedCountry && !inBucketList(selectedCountry)" v-on:click="addToBucketList">Add Country</button>
 
     <bucket-list :bucketList="bucketList"></bucket-list>
 </div>
@@ -69,6 +69,9 @@ export default {
 
         BucketService.addBucketItem(selectedCountryTrim)
         .then(resBucket => this.bucketList.push(resBucket))
+      },
+      inBucketList(country){
+        return this.bucketList.some(item => item.name === country.name)
       }
     }
 }
