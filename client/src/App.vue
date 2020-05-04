@@ -82,6 +82,21 @@ export default {
   height: 20px
 }
 
+body {
+  background: #222129;
+}
+#app {
+  /* display: grid;
+  grid-template-rows: 100px 1fr ;
+  grid-gap: 1em; */
+
+
+  background: #222129;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: white;
+
+}
 
 
 </style>
