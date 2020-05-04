@@ -43,8 +43,8 @@ export default {
       })
 
       eventBus.$on('updated-bucket-item', (resBucketitem) => {
-        const index = this.BucketList.findIndex(country => country._id === resBucketitem._id)
-        this.BucketList.splice(index, 1, resBucketitem)
+        const index = this.bucketList.findIndex(country => country._id === resBucketitem._id)
+        this.bucketList.splice(index, 1, resBucketitem)
       })
 
 

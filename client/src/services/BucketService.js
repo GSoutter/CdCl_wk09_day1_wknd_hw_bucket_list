@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api/countries';
+const baseUrl = 'http://localhost:3000/api/countries/';
 
 export default {
   getBucketList() {
@@ -21,6 +21,7 @@ export default {
       method: "PUT",
       body: JSON.stringify(payload),
       headers: {'Content-type': 'application/json'}
-    } )
+    })
+    .then(res => res.json())
   }
 }
