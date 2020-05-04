@@ -41,6 +41,13 @@ export default {
       eventBus.$on('country-selected', (country) => {
         this.selectedCountry = country;
       })
+
+      eventBus.$on('updated-bucket-item', (resBucketitem) => {
+        const index = this.BucketList.findIndex(country => country._id === resBucketitem._id)
+        this.BucketList.splice(index, 1, resBucketitem)
+      })
+
+
     },
     methods: {
       getCountries(){

@@ -14,5 +14,13 @@ export default {
       headers: {'Content-type': 'application/json'}
     })
     .then(res => res.json())
+  },
+
+  updateBucketItem(id, payload){
+    return fetch (baseUrl + id, {
+      method: "PUT",
+      body: JSON.stringify(payload),
+      headers: {'Content-type': 'application/json'}
+    } )
   }
 }
